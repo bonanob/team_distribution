@@ -1,9 +1,10 @@
+import sys
 import constants as cons
 import random
 
 
-def validate_input(prompt, options, loop = False):
-    if loop == True:
+def validate_input(prompt, options, loop=False):
+    if loop is True:
         while True:
             try:
                 val = input(prompt)
@@ -14,7 +15,6 @@ def validate_input(prompt, options, loop = False):
                 continue
             else:
                 return val
-                break
     else:
         try:
             val = input(prompt)
@@ -28,7 +28,7 @@ def validate_input(prompt, options, loop = False):
 
 if __name__ == '__main__':
     all_players = cons.PLAYERS
-    all_teams_players = [ [] for i in range(len(cons.TEAMS)) ]
+    all_teams_players = [[] for i in range(len(cons.TEAMS))]
     exp_players = []
     inexp_players = []
 
@@ -40,7 +40,7 @@ if __name__ == '__main__':
             all_players[i]['experience'] = True
         else:
             inexp_players.append(all_players[i])
-            all_players[i]['experience'] =  False
+            all_players[i]['experience'] = False
 
     random.shuffle(exp_players)
     random.shuffle(inexp_players)
@@ -69,7 +69,7 @@ if __name__ == '__main__':
                 print(f'   {i}. {team}')
 
             try:
-                choose_team_option = [str(i) for i in range(len(all_teams_players))]
+                choose_team_option = [str(i) for i in range(1, (len(all_teams_players)+1)) ]
                 print()
                 choose_team = validate_input("Enter an option:  ", choose_team_option)
                 choose_team = int(choose_team) - 1
@@ -78,13 +78,14 @@ if __name__ == '__main__':
 
             num_team_exp_plyrs = 0
             print("\n-----------------\n")
-            print("TEAM:", cons.TEAMS[choose_team], end = '\n\n')
+            print("TEAM:", cons.TEAMS[choose_team], end='\n\n')
             print("Number of players:  ", len(all_teams_players[choose_team]))
             for i in range(len(all_teams_players[choose_team])):
-                if all_teams_players[choose_team][i]['experience'] == True:
+                if all_teams_players[choose_team][i]['experience'] is True:
                     num_team_exp_plyrs += 1
             print("Number of experienced players:", num_team_exp_plyrs)
-            print("Number of inexperienced players:", (len(all_teams_players[choose_team]) - num_team_exp_plyrs))
+            print("Number of inexperienced players:",
+                  (len(all_teams_players[choose_team]) - num_team_exp_plyrs))
 
             total_team_height = 0
             names_team_plyrs = []
@@ -96,13 +97,14 @@ if __name__ == '__main__':
                 guardians_team_plyrs.extend(all_teams_players[choose_team][i]['guardians'])
 
             avg_team_height = total_team_height / len(all_teams_players[choose_team])
-            print("Average team height: %.2f inches" % avg_team_height, end = '\n\n')
-            print("Players:\n  ", ', '.join(names_team_plyrs), end = '\n\n')
+            print("Average team height: %.2f inches" % avg_team_height, end='\n\n')
+            print("Players:\n  ", ', '.join(names_team_plyrs), end='\n\n')
             print("Guardians:\n  ", ', '.join(guardians_team_plyrs))
             print("\n-----------------\n")
 
             restart_option = ('y', 'n')
-            restart = choose_team = validate_input("Would you like to try again? (Y/N):   ", restart_option, True)
+            restart = choose_team = validate_input(
+                "Would you like to try again? (Y/N):   ", restart_option, True)
 
             if restart.lower() == "y":
                 continue
@@ -111,3 +113,4 @@ if __name__ == '__main__':
 
     else:
         print("\nBye.\n")
+print(sys.version)
