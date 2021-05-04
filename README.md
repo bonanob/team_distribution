@@ -1,7 +1,25 @@
 # Project 2: Basketball Stats Tool
-1. Import from constants.py the players' data to be used within your program.
-2. Read the existing player and team data from the PLAYERS and TEAMS constants provided in constants.py and build a new collection.
 
-HINT: Think Lists with nested Dictionaries might be one way.
+The app creates structures to store and organize a team of Basketball players into distributed teams. It will balance the teams by the total number of players, and also generate some statistics for a given team. Player data is imported from `constants.py` and is build into a structure of nested arrays.
 
-NOTE: Ensure you do not directly modify the data in PLAYERS or TEAMS constants. This data you should iterate and read from to build your own collection and would be ideal to clean the data as you loop over it building your new collection.
+**How to run the project locally:**
+
+If you have python installed, have both `.py` files in a folder and run `app.py`
+
+**What I've learned:**
+
+- Importing data from files
+- Building data structure using nested dictionaries
+- Cleaning data
+- Validating user input
+
+**Flow:**
+
+1. User is prompted to see stats or quit.
+2. User is prompted to choose a team.
+3. Stats of the chosen team are shown.
+4. User is prompted to redivide the teams (y/n)
+
+**Notes:**
+
+- Players are redistributed every time you start or restart the app.
