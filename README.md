@@ -1,6 +1,6 @@
 # Project 2: Basketball Stats Tool
 
-The app creates structures to store and organize a team of Basketball players into distributed teams. It will balance the teams by the total number of players, and also generate some statistics for a given team. Player data is imported from `constants.py` and is build into a structure of nested arrays.
+The app creates structures to store and organize a team of basketball players into teams. It will balance the teams by the total number of players and generate some statistics for a given team. Player data is imported from constants.py and is built into a structure of nested arrays.
 
 **How to run the project locally:**
 
